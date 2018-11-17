@@ -1,0 +1,86 @@
+.header {
+	background-color: #b7d5ff;
+	text-align: center;
+	padding: 20px;
+	text-decoration-color: black;
+
+
+}
+
+.nav {
+	overflow  : hidden;
+	background: black;
+	max-height: 30px;
+
+
+
+
+}
+
+.nav a {
+	color: white;
+	background-color: black;
+	float: left;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 15px;
+	text-align: center;
+	padding: 5px;
+	margin: 5px
+
+
+}
+
+.nav a:hover {
+	background-color: white;
+	color:black;
+	text-decoration: none;
+}
+
+#quote {
+	font-family: garamond;
+	font-style: oblique;
+
+
+}
+main {
+	width: 75%
+}
+
+table {
+	
+	width: 65%;
+	margin-right: 5px; 
+	padding-right: 5px;
+	overflow: hidden;
+	display: block;
+	float: left
+
+}
+th {
+	height: 30px;
+	text-align: center;
+	vertical-align: middle;
+}
+td {
+	text-align: center; 
+	vertical-align: middle;
+	height: 15px
+	margin:5px;
+	padding: 10px;	
+
+}
+
+#table-img {
+	margin-left: 5px;
+	padding-left: 5px;
+	width: 30%;
+	display: block;
+	float: right;
+}
+
+
+.footer {
+
+	
+}
