@@ -2,15 +2,33 @@
 	background-color: #b7d5ff;
 	text-align: center;
 	padding: 20px;
+	display: block;
 	text-decoration-color: black;
 
 
 }
+#headerimg {
+	max-height: 100px;
+	display   : inline-block;
+	border-radius: 60%;
+	float:right;
+	overflow: auto;
+	padding: 20px;
+	margin: 5px;
+
+}
 
 .nav {
+	width: 100%;
+	border-radius: 15px;
+	padding-right: 5px;
+	padding-left: 5px;
+	margin: 10px;
+	display: inherit;
 	overflow  : hidden;
 	background: black;
 	max-height: 30px;
+
 
 
 
@@ -26,7 +44,7 @@
 	border-radius: 15px;
 	text-align: center;
 	padding: 5px;
-	margin: 5px
+	margin: 5px;
 
 
 }
@@ -75,9 +93,35 @@ td {
 	margin-left: 5px;
 	padding-left: 5px;
 	width: 30%;
+	border-radius: 50%;
 	display: block;
 	float: right;
 }
+
+/* test code for hover manue*/
+.nav ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.nav ul li {display: inline-block;}
+.nav ul li:hover {background: #555;}
+.nav ul li:hover ul {display: block;}
+.nav ul li ul {
+  position: absolute;
+  width: 200px;
+  display: none;
+}
+.nav ul li ul li { 
+  background: #555; 
+  display: block; 
+}
+.nav ul li ul li a {display:block !important;} 
+.nav ul li ul li:hover {background: #666;}
+
+
+
+/* END TEST CODE FOR HOVER MENUE*/
 
 
 .footer {
