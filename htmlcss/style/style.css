@@ -1,21 +1,22 @@
 .header {
 	background-color: #b7d5ff;
+	width: 100%;
 	text-align: center;
-	padding: 20px;
+	margin: 5px;
+	padding-bottom: 20px;
 	display: block;
+
 	text-decoration-color: black;
 
 
 }
 #headerimg {
 	max-height: 100px;
-	display   : inline-block;
-	border-radius: 60%;
-	float:right;
-	overflow: auto;
-	padding: 20px;
-	margin: 5px;
-
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 40%;
+	float: right;
+	padding: 0px 5px 5px 5px;
 }
 
 .nav {
@@ -23,8 +24,7 @@
 	border-radius: 15px;
 	padding-right: 5px;
 	padding-left: 5px;
-	margin: 10px;
-	display: inherit;
+	margin: 10px;	
 	overflow  : hidden;
 	background: black;
 	max-height: 30px;
@@ -38,15 +38,13 @@
 .nav a {
 	color: white;
 	background-color: black;
-	float: left;
+	float: left;	
 	text-decoration: none;
 	display: inline-block;
 	border-radius: 15px;
 	text-align: center;
 	padding: 5px;
 	margin: 5px;
-
-
 }
 
 .nav a:hover {
@@ -96,32 +94,10 @@ td {
 	border-radius: 50%;
 	display: block;
 	float: right;
+
 }
 
-/* test code for hover manue*/
-.nav ul {
-  display: inline;
-  margin: 0;
-  padding: 0;
-}
-.nav ul li {display: inline-block;}
-.nav ul li:hover {background: #555;}
-.nav ul li:hover ul {display: block;}
-.nav ul li ul {
-  position: absolute;
-  width: 200px;
-  display: none;
-}
-.nav ul li ul li { 
-  background: #555; 
-  display: block; 
-}
-.nav ul li ul li a {display:block !important;} 
-.nav ul li ul li:hover {background: #666;}
 
-
-
-/* END TEST CODE FOR HOVER MENUE*/
 
 
 .footer {
