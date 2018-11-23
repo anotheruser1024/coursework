@@ -1,10 +1,20 @@
+
+    
+}
+
+.page-style1 {
+	width:100%;
+	float:left;
+}
+
 .header {
-	background-color: #b7d5ff;
+	
 	width: 100%;
 	text-align: center;
 	padding-bottom: 20px;
 	display: block;
 	text-decoration-color: black;
+	overflow: visible;
 
 
 }
@@ -17,19 +27,14 @@
 	padding: 0px 5px 5px 5px;
 }
 
-.nav {
-	width: 100%;
+.nav {	
+	width: 98%;	
 	border-radius: 15px;
-	padding-right: 5px;
-	padding-left: 5px;	
+	margin-right: 10px; 
+	padding-right: 10px;
+	padding-left: 10px;	
 	overflow  : hidden;
 	background: black;
-	max-height: 30px;
-
-
-
-
-
 }
 
 .nav a {
@@ -50,16 +55,41 @@
 	text-decoration: none;
 }
 
+.contribution h4 {
+	text-decoration: underline;
+	font-family:'Rubik', sans-serif;
+}
+
+.contribution a:hover, visited {
+	font-weight: ;
+	text-decoration: none;
+
+}
+
 #quote {
 	font-family: garamond;
 	font-size: 2em;
 	font-style: oblique;
 	vertical-align: middle;
+	overflow:hidden;
 
 }
+
 main {
-	width: 100%
+	width: 95%;
+	padding: 5px;
+	margin: 20px;
+
 }
+ main a {
+ 	text-decoration: none;
+ 	color: black;
+ 	font-family:'Rubik', sans-serif; 	
+
+ }
+ main a:hover visited{
+ 	s
+ }
 #Introduction {
 	width: 60%;
 	padding: 20px;
