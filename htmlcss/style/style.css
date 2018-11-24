@@ -1,6 +1,6 @@
 
     
-}
+
 
 .page-style1 {
 	width:100%;
@@ -65,6 +65,12 @@
 	text-decoration: none;
 
 }
+.jstor {
+	width: 70%;
+	display: block;
+	float: left;
+	
+}
 
 #quote {
 	font-family: garamond;
@@ -87,30 +93,42 @@ main {
  	font-family:'Rubik', sans-serif; 	
 
  }
+<<<<<<< HEAD
 
+=======
+ main a:hover visited{
+ 	
+ }
+>>>>>>> d2c3784f36c3a1c63aa8c5ca2d5774ef8a8e3b00
 #Introduction {
 	width: 60%;
 	padding: 20px;
 	margin: 10;
 	font-family: 'Muli', sans-serif;	
 }
-#Introduction a {
+.text a {
 	text-decoration: none;
 	font-style: italic;
 	color: black;	
 
 }
-#Introduction a:hover,  a:visited  {
+.text a:hover,  a:visited  {
 	font-style: normal;
 
 }
+#jstor {
+	height: 300px;
+	width: 200px;
+	display: inline-block;
+	float: right;
+	margin-right: 20px
+}
 
-table {
-	
+
+table {	
 	width: 50%;
 	margin-right: 5px; 
 	padding-right: 5px;
-	overflow: hidden;
 	display: inline-block;
 	
 
@@ -118,20 +136,35 @@ table {
 
 tbody{
 	width: 100%;
-	display:inherit;
+	padding: 5px
+
+}
+tr {
+	margin: 5px
+
 }
 th {
-	height: 30px;
+	
 	text-align: center;
 	vertical-align: middle;
+	margin: 5px;
+	padding: 5px;
 }
 td {
 	text-align: center; 
 	vertical-align: middle;
-	height: 15px
-	margin:5px;
-	padding: 10px;	
+	margin: 10px;
+	padding: 10px;
+	font-family: 'Rubik', sans-serif 	
 
+}
+p {
+	margin: 20px;
+	padding: 10px
+	margin-bottom: 10px;
+}
+h3{
+	margin-bottom: 0px;
 }
 #imgcropper {
 	display: inline-grid;
