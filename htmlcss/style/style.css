@@ -18,11 +18,10 @@
 
 
 }
-.footer {
-}
 
 .nav {	
-	width: 98%;	
+	max-width: 98%;
+	width: auto;	
 	border-radius: 15px;
 	margin-right: 10px; 
 	padding-right: 10px;
@@ -80,12 +79,13 @@
 	text-overflow: hidden;
 }
 
-#quote {
+.quote {
 	font-family: garamond;
 	font-size: 2em;
 	font-style: oblique;
+	text-align: center;
 	vertical-align: middle;
-	overflow:hidden;
+	overflow:visible;
 }
 
 #jstor {
@@ -94,16 +94,10 @@
 	display: inline-block;
 	float: right;
 	margin-left: 10px
+	margin-bottom:20px;
+	padding-bottom: 20px
 }
-<<<<<<< HEAD
- main a {
- 	text-decoration: none;
- 	color: black;
- 	font-family:'Rubik', sans-serif; 	
 
- }
-=======
->>>>>>> e03b286143b81d647c83e5f17bb7786a6f81b530
 
 #Introduction {
 	width: 60%;
@@ -127,9 +121,19 @@
 	float:right;
 	margin-right: 10px;
 	margin-left: 5px;
-	padding-left: 10px;
-	
+	padding-left: 10px;	
 
+}
+#titleblock{
+	width: 500px;
+
+}
+#imgtitle {
+	display: block;
+	margin: 10px
+	max-width: 100%;
+	height: auto;
+	width: auto;
 }
 
 #imgcropper {
@@ -170,6 +174,9 @@ h3{
  a :hover,visited {
  	text-decoration: none;
  	font-family: sans-serif;
+}
+section {
+	width: 80%
 }
 blockquote {
 	font-style: italic;
@@ -219,5 +226,18 @@ td {
 
 }
 
+footer {
+	
+	margin-top: 10px;	
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;   
+	text-align: bottom;
+}
+footer p{
+	font-family: serif;
+	font-size: small;
+}
 
 	
