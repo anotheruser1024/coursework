@@ -18,13 +18,7 @@
 
 
 }
-#headerimg {
-	max-height: 100px;
-	display: inline-block;
-	vertical-align: top;
-	border-radius: 40%;
-	float: right;
-	padding: 0px 5px 5px 5px;
+.footer {
 }
 
 .nav {	
@@ -72,27 +66,44 @@
 	
 }
 
+.text a:hover,  a:visited  {
+	font-style: normal;
+	margin: 2px;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+.text a {
+	
+	text-decoration: underline;	
+	color: black;
+	text-overflow: hidden;
+}
+
 #quote {
 	font-family: garamond;
 	font-size: 2em;
 	font-style: oblique;
 	vertical-align: middle;
 	overflow:hidden;
-
 }
 
-main {
-	width: 95%;
-	padding: 5px;
-	margin: 20px;
-
+#jstor {
+	height: 300px;
+	width: 200px;
+	display: inline-block;
+	float: right;
+	margin-left: 10px
 }
+<<<<<<< HEAD
  main a {
  	text-decoration: none;
  	color: black;
  	font-family:'Rubik', sans-serif; 	
 
  }
+=======
+>>>>>>> e03b286143b81d647c83e5f17bb7786a6f81b530
 
 #Introduction {
 	width: 60%;
@@ -100,32 +111,87 @@ main {
 	margin: 10;
 	font-family: 'Muli', sans-serif;	
 }
-.text a {
-	text-decoration: none;
-	font-style: italic;
-	color: black;	
-
-}
-.text a:hover,  a:visited  {
-	font-style: normal;
-
-}
-#jstor {
-	height: 300px;
-	width: 200px;
+#headerimg {
+	max-height: 100px;
 	display: inline-block;
+	vertical-align: top;
+	border-radius: 40%;
 	float: right;
-	margin-right: 20px
+	padding: 0px 5px 5px 5px;
 }
 
+#imgwrap {
+	height: 200px;
+	width: 300px;
+	display: inline-block;
+	float:right;
+	margin-right: 10px;
+	margin-left: 5px;
+	padding-left: 10px;
+	
+
+}
+
+#imgcropper {
+	display: inline-grid;
+	float: right;
+	width: 350px;
+    height: 350px;
+    position: inherit;
+    overflow: hidden;
+    border-radius: 50%;
+ 	margin: 40px; 	
+ }
+
+#table-img {
+	display: inline;
+  	margin: 0 auto;
+  	margin-left: -15%; //centers the image
+  	height: 100%;
+  	width: auto;
+}
+
+#imgcropper:hover{
+	overflow: visible;
+}
+
+
+h3{
+	margin-bottom: 0px;
+	font-family: sans-serif;
+}
+
+ a {
+ 	text-decoration: underline;
+ 	color: black;
+ 	font-font-family: 'Muli', sans-serif;
+ }
+
+ a :hover,visited {
+ 	text-decoration: none;
+ 	font-family: sans-serif;
+}
+blockquote {
+	font-style: italic;
+	font-family: 'Muli' sans-serif;
+	padding-bottom: 0px
+}
+
+main {
+	width: 95%;
+	padding: 5px;
+	margin: 20px;
+}
+p {
+	font-family: 'Rubik',sans-serif;
+
+}
 
 table {	
 	width: 50%;
 	margin-right: 5px; 
 	padding-right: 5px;
 	display: inline-block;
-	
-
 }
 
 tbody{
@@ -152,42 +218,6 @@ td {
 	font-family: 'Rubik', sans-serif 	
 
 }
-p {
-	margin: 20px;
-	padding: 10px
-	margin-bottom: 10px;
-}
-h3{
-	margin-bottom: 0px;
-}
-#imgcropper {
-	display: inline-grid;
-	float: right;
-	width: 350px;
-    height: 350px;
-    position: inherit;
-    overflow: hidden;
-    border-radius: 50%;
- 	margin: 40px;
- 	
- }
-#table-img {
-	display: inline;
-  	margin: 0 auto;
-  	margin-left: -15%; //centers the image
-  	height: 100%;
-  	width: auto;
 
-
-}
-#imgcropper:hover{
-	overflow: visible;
-}
-
-
-
-
-.footer {
 
 	
-}
