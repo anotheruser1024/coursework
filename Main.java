@@ -1,4 +1,5 @@
 package rugbyTeam;
+import java.util.Scanner;
 
 public class Main {
 
@@ -14,7 +15,7 @@ public class Main {
 		UX.printfirstMenu();
 		
 	}
-///this is a test
-	
+//this is an edit
 	
 }
+>>>>>>> 8f27427cacec42528a4ede4347c7b2b72a6df811
