@@ -25,7 +25,7 @@ public class Player {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void setPlayerID(String playerID) {
+	/*public void setPlayerID(String playerID) {
 		if(Pattern.matches("RUF[0-9][0-9][0-9][0-9][0-9]", playerID)) {
 			//check if player format is RUF then 5 digits
 			
@@ -35,7 +35,7 @@ public class Player {
 			//returns value erro
 			System.out.println("Check entry");			
 		}
-	}
+	}*/
 	
 	public static void main(String[] args) {
 		Player player1 = new Player(1, "Team1", "stadium1", "RUF12345", "John Do", 1);
@@ -47,5 +47,8 @@ public class Player {
 		// TODO Auto-generated method stub
 		return playerID;
 	}
+	/*;odiasfaso;ifdasl;gnhdasl;kfjhvangadofipgvomrjhyergopjagipofdjgl;kajf'sg
+	 * fgfdslgnfdlgkfndglkndfslgkfndsgl;fdgnfdsk;lgnsd
+	 * lsdfjkgbk;jfdsbgk;fjsdbgsdkl;jgbfdsf;gb */
 }
 
