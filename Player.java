@@ -20,7 +20,7 @@ public class Player {
 		this.stadiumName = stadiumName;		
 		this.setPlayerID(playerID);
 		this.playerName = playerName;
-		this.careerTries = careerTries;
+		this.setCareerTries(careerTries);
 		
 		// TODO Auto-generated constructor stub
 	}
@@ -32,7 +32,7 @@ public class Player {
 			this.playerID = playerID;
 			
 		} else {
-			//returns value erro
+			//returns value error
 			System.out.println("Check entry");			
 		}
 	}
@@ -46,6 +46,21 @@ public class Player {
 	public String getplayerID() {
 		// TODO Auto-generated method stub
 		return playerID;
+	}
+
+	public int getCareerTries() {
+		return careerTries;
+	}
+
+	public void setCareerTries(int careerTries) {
+		
+		if(getCareerTries() >= 1){
+			this.careerTries += careerTries;
+			System.out.println(getCareerTries());
+			
+		}else {
+			this.careerTries = careerTries;
+		}
 	}
 }
 

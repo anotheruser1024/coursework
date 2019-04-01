@@ -12,8 +12,7 @@ public class UX {
 	}  
 	public static void printfirstMenu() {
 		System.out.println("what would you like to do today?");
-		System.out.println("1: Add new player");
-		System.out.println("2: Edit Player");
+		
 		System.out.println("3: View Existing player");
 		int select;
 		select = scanner.nextInt();
@@ -36,7 +35,18 @@ public class UX {
 		System.out.println("Enter player Name");
 		
 	}
-	public static void prinClass() {
+	
+	public static void printConfrim() {
+		System.out.println("---CONFIRM---");
+		System.out.println("1: YES or Y");
+		System.out.println("2: NO or N");
+		
+		
+	}
+	public static void printField(String field) {
+		System.out.println("---Enter---");
+		System.out.println("Enter "+ field+": ");
+		
 		
 		
 	}
