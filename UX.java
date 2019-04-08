@@ -2,7 +2,8 @@ package rugbyTeam;
 import java.util.Scanner;
 
 public class UX {
-	static Scanner scanner = new Scanner(System.in);
+	static Scanner input = new Scanner(System.in);
+	static Players pl = new Players();
 	public static void welcome() {
 		System.out.println("---WELCOME---");
 		System.out.println("Welcom to player manager app");		
@@ -17,7 +18,7 @@ public class UX {
 		System.out.println("1:Add New Player/n2: Edit Player /n3: View Existing player");
 		
 		int select;
-		select = scanner.nextInt();
+		select = input.nextInt();
 		System.out.println(select);
 		
 		
@@ -50,22 +51,22 @@ public class UX {
 		int number;
 		do {
 		    
-		    while (!scanner.hasNextInt()) {
+		    while (!input.hasNextInt()) {
 		        System.out.println("That's not a number!");
-		        scanner.next(); // this is important!
+		        input.next(); // this is important!
 		    }
-		    number = scanner.nextInt();
+		    number = input.nextInt();
 		} while (number <= 0);
 		return number;
 		
 	}
 	public static String inputPlayerID() {
 		String playerID;
-		while(!scanner.hasNext("RUF[0-9][0-9][0-9][0-9][0-9]")){
+		while(!input.hasNext("RUF[0-9][0-9][0-9][0-9][0-9]")){
 			System.out.println("Please enter player ID with Prefix RUF followed by 5 didgits");
-			scanner.next();
+			input.next();
 	}
-	playerID = scanner.nextLine();
+	playerID = input.nextLine();
 	return playerID;
 	}
 	
@@ -77,25 +78,25 @@ public class UX {
 		
 		System.out.println("please enter Player's First name: ");
 		//checks if input is letters not numbers 
-		while(!scanner.hasNext("[A-Za-z]+")){
+		while(!input.hasNext("[A-Za-z]+")){
 			System.out.print(" Oops!! names can't have numbers");
-			scanner.next();
+			input.next();
 			
 		}
-		firstName = scanner.nextLine();
+		firstName = input.nextLine();
 		//.append(scanner.nextLine());
-		scanner.reset();
+		input.reset();
 		 
 		System.out.println("Enter player's Surname: ");
-		while(!scanner.hasNext("[A-Za-z]+")){
+		while(!input.hasNext("[A-Za-z]+")){
 			System.out.print("Oops!! Names cant contain numbers");
-			scanner.next();
+			input.next();
 		}
 		
-		surName = scanner.nextLine();
+		surName = input.nextLine();
 		while(firstName.equals(surName) ) {
 			System.out.println("Oops!! first and last name cant be the same");
-			surName = scanner.next();			
+			surName = input.next();			
 		}
 		
 		playerName = (firstName +" " + surName);
@@ -107,13 +108,13 @@ public class UX {
 	public static String checkIsStr(){
 		String str =null;
 		//checks if input is letters not numbers 
-		while(!scanner.hasNext("[A-Za-z]+")){
+		while(!input.hasNext("[A-Za-z]+")){
 			System.out.print(" Oops!! names can't have numbers");
-			scanner.next();		
+			input.next();		
 		}
-		str = scanner.nextLine();
+		str = input.nextLine();
 		
-		scanner.reset();
+		input.reset();
 		return str;
 	}
 	
@@ -143,8 +144,9 @@ public class UX {
 		
 		teamID = "123434";
 		
-		PLayers pb = new PLayers();
-		pb.add(teamName, stadiumName,teamID, playerID, playerName, careerTries);
+		
+		pl.add(teamName, stadiumName,teamID, playerID, playerName, careerTries);
+		pl.
 		
 		
 

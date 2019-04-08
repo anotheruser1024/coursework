@@ -1,5 +1,4 @@
 package rugbyTeam;
-import java.util.Scanner;
 
 public class Main {
 

@@ -2,22 +2,34 @@ package rugbyTeam;
 
 import java.util.ArrayList;
 
-public class PLayers {
-private static ArrayList<Player>entries;
+public class Players {
+	private static ArrayList<Player>entries;
 	
-	public PLayers() {
-		setEntries(new ArrayList<Player>());
+	
 		
-	}
+	
+	public Players( ) {
+        entries = new ArrayList<Player>();
+    }
 	public void add( String teamName, String stadiumName,String teamID,String playerID,String playerName,int careerTries ) {
 	getEntries().add(new Player(teamName, stadiumName, teamID, playerID, playerName, careerTries));
 	
 	}
-	public static ArrayList<Player> getEntries() {
-		return entries;
+	
+	
+	private ArrayList<Player> getEntries() {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	public void setEntries(ArrayList<Player> entries) {
-		this.entries = entries;
-	}
+	public String findString( String toFind ) {
+        for (Player item:entries) {
+            if (item.getPlayerName().equals(toFind) ) {
+                return item.getPlayerName();
+            }
+        }
+        return "NOT FOUND";
+    }
+	
+	
 
 }
