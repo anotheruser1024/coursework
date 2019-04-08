@@ -71,9 +71,9 @@ public class UX {
 	
 	public static String inputName() {
 		//local variables for method 
-		String firstName;
-		String surName;
-		String playerName;
+		String firstName = null;
+		String surName=null;
+		String playerName=null;
 		
 		System.out.println("please enter Player's First name: ");
 		//checks if input is letters not numbers 
@@ -105,26 +105,27 @@ public class UX {
 	}
 	
 	public static String checkIsStr(){
-		String str;
+		String str =null;
 		//checks if input is letters not numbers 
 		while(!scanner.hasNext("[A-Za-z]+")){
 			System.out.print(" Oops!! names can't have numbers");
 			scanner.next();		
 		}
 		str = scanner.nextLine();
-		//.append(scanner.nextLine());
+		
 		scanner.reset();
 		return str;
 	}
 	
 	
-	public static void classPlayerNew() {
-		String playerID;
-		String stadiumName;
-		String playerName;
-		String teamName;
-		int careerTries;
-		String name;
+	public static void PlayerNew() {
+		String playerID =null;
+		String stadiumName=null;
+		String playerName=null;
+		String teamName=null;
+		Integer careerTries=null;
+		
+		String teamID=null;
 		
 		
 		clearScreen();
@@ -137,9 +138,13 @@ public class UX {
 		printField("player", "Team name");
 		teamName = checkIsStr();
 		printField("player", "Stadium");
+		
 		stadiumName = checkIsStr();
-		name = playerID;
-		Player name = new Player(teamName, stadiumName, playerID, playerName, careerTries);
+		
+		teamID = "123434";
+		
+		PLayers pb = new PLayers();
+		pb.add(teamName, stadiumName,teamID, playerID, playerName, careerTries);
 		
 		
 

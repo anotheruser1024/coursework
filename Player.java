@@ -1,7 +1,8 @@
 package rugbyTeam;
 
-import java.util.ArrayList;
 import java.util.regex.Pattern;
+
+import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Player {
@@ -9,15 +10,16 @@ public class Player {
 	
 	private String teamName;
 	private String stadiumName;
-	
+	private String teamID;
 	private String playerID;
 	private String playerName;
 	private int careerTries;
 	
-	public Player(String teamName, String stadiumName,String playerID,String playerName,int careerTries) {
+	public Player(String teamName, String stadiumName,String teamID,String playerID,String playerName,int careerTries) {
 		
 		this.teamName = teamName;		
-		this.stadiumName = stadiumName;		
+		this.setStadiumName(stadiumName);
+		this.setTeamID(teamID);
 		this.setPlayerID(playerID);
 		this.setPlayerName(playerName);
 		this.setCareerTries(careerTries);
@@ -25,6 +27,12 @@ public class Player {
 		// TODO Auto-generated constructor stub
 	}
 	
+
+
+	
+
+
+
 	public String getPlayerName() {
 		return playerName;
 	}
@@ -39,6 +47,13 @@ public class Player {
 	}
 	
 	
+	//--Setters--
+	
+	private void setTeamID(String teamID2) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	public void setPlayerID(String playerID) {
 		if(Pattern.matches("RUF[0-9][0-9][0-9][0-9][0-9]", playerID)) {
 			//check if player format is RUF then 5 digits
@@ -51,12 +66,6 @@ public class Player {
 		}
 	}
 	
-	
-
-
-
-
-
 	public void setCareerTries(int careerTries) {
 		
 		if(getCareerTries() >= 1){
@@ -69,18 +78,28 @@ public class Player {
 		}
 	}
 
-
+	private void setStadiumName(String stadiumName2) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public void setPlayerName(String playerName) {
 		this.playerName = playerName;
 	}
 	
+	
 	//--MAIN--
+	
+	
+	
+	
+	//--player instance add to array
+	
 	public static void main(String[] args) {
-		Player player1 = new Player("Team1", "stadium1", "RUF12345", "John Do", 1);
-		// TODO Auto-generated method stub
-		System.out.println(player1.playerID);
+
+		
 	}
 }
+
 
 
