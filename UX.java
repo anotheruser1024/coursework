@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class UX {
 	static Scanner input = new Scanner(System.in);
-	static Players pl = new Players();
+	
 	public static void welcome() {
 		System.out.println("---WELCOME---");
 		System.out.println("Welcom to player manager app");		
@@ -60,14 +60,16 @@ public class UX {
 		return number;
 		
 	}
+	
 	public static String inputPlayerID() {
 		String playerID;
 		while(!input.hasNext("RUF[0-9][0-9][0-9][0-9][0-9]")){
 			System.out.println("Please enter player ID with Prefix RUF followed by 5 didgits");
+			
 			input.next();
-	}
-	playerID = input.nextLine();
-	return playerID;
+		}
+		playerID = input.nextLine();
+		return playerID;
 	}
 	
 	public static String inputName() {
@@ -105,48 +107,72 @@ public class UX {
 		return playerName;
 	}
 	
-	public static String checkIsStr(){
-		String str =null;
-		//checks if input is letters not numbers 
-		while(!input.hasNext("[A-Za-z]+")){
-			System.out.print(" Oops!! names can't have numbers");
-			input.next();		
-		}
-		str = input.nextLine();
-		
-		input.reset();
-		return str;
-	}
 	
-	
-	public static void PlayerNew() {
+	public static void CreatPlayerNew() {
 		String playerID =null;
 		String stadiumName=null;
 		String playerName=null;
 		String teamName=null;
-		Integer careerTries=null;
+		int careerTries=0;
 		
 		String teamID=null;
+		Player player = new Player();
+        while (true) {
+            try {
+                
+                playerName = inputName();
+                player.setPlayerName(playerName);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        while (true) {
+            try {
+            	printField( "player", "playerID");
+                playerID = input.nextLine();
+                player.setPlayerID(playerID);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        while (true) {
+            try {
+            	printField( "player", "Stadium Name");
+                stadiumName = input.nextLine();
+                player.setStadiumName(stadiumName);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+       
+        while (true) {
+            try {
+            	printField( "player", "team name");
+                teamName = input.nextLine();
+                player.setTeamName(teamName);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        while (true) {
+            try {
+            	printField( "player", "career tries");
+                careerTries = checkIsInt();
+                player.setCareerTries(careerTries);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 		
+		Players.addNewPlayer(teamName, stadiumName,teamID, playerID, playerName, careerTries);
 		
-		clearScreen();
-		printAddMenu();
-		playerName = inputName();
-		printField("player", "player ID");
-		playerID = inputPlayerID();
-		printField("player", "career Tries");
-		careerTries = checkIsInt();
-		printField("player", "Team name");
-		teamName = checkIsStr();
-		printField("player", "Stadium");
-		
-		stadiumName = checkIsStr();
-		
-		teamID = "123434";
-		
-		
-		pl.add(teamName, stadiumName,teamID, playerID, playerName, careerTries);
-		pl.
+			
+		}
 		
 		
 
@@ -155,5 +181,5 @@ public class UX {
 	
 	
 	
-}
+
 

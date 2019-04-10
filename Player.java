@@ -3,7 +3,6 @@ package rugbyTeam;
 import java.util.regex.Pattern;
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Player {
 	
@@ -17,7 +16,7 @@ public class Player {
 	
 	public Player(String teamName, String stadiumName,String teamID,String playerID,String playerName,int careerTries) {
 		
-		this.teamName = teamName;		
+		this.setTeamName(teamName);		
 		this.setStadiumName(stadiumName);
 		this.setTeamID(teamID);
 		this.setPlayerID(playerID);
@@ -26,14 +25,18 @@ public class Player {
 		
 		// TODO Auto-generated constructor stub
 	}
-	
 
+	
+	public Player() {
+		;
+	}
 
 	
 
 
 
 	public String getPlayerName() {
+		
 		return playerName;
 	}
 	
@@ -46,23 +49,35 @@ public class Player {
 		return playerID;
 	}
 	
+	public String getPlayer() {
+		String player = "\t\t ----PLayer Details---"+
+						"\n Name: " + Main.capitailizeWord(playerName)
+						+"\n Player ID: "+ playerID
+						+"\n Team: " + Main.capitailizeWord(teamName)
+						+"\n Home Stadium:" + Main.capitailizeWord(stadiumName)
+						+"\n Players career tries: " + careerTries;
+						;
+		
+		return player;
+	}
+	
 	
 	//--Setters--
 	
-	private void setTeamID(String teamID2) {
+	private void setTeamID(String teamID) {
 		// TODO Auto-generated method stub
-		
+		this.teamID = teamID;
 	}
 	
-	public void setPlayerID(String playerID) {
-		if(Pattern.matches("RUF[0-9][0-9][0-9][0-9][0-9]", playerID)) {
+	public void setPlayerID(String playerID)  throws IllegalArgumentException{
+		if(Pattern.matches("RUF[0-9]{5}", playerID) && !Players.existingplayerID(playerID)) {
 			//check if player format is RUF then 5 digits
 			
 			this.playerID = playerID;
 			
 		} else {
 			//returns value error
-			System.out.println("Check entry");			
+			throw new IllegalArgumentException("Invalid ID check format RUF12345 RUF then 5 numbers \nOR\n player ID already in use");			
 		}
 	}
 	
@@ -72,21 +87,25 @@ public class Player {
 			this.careerTries += careerTries;
 			System.out.println(getPlayerName() +"'s " + "career tries to date: " +getCareerTries());
 			
-		}else {
+		}else{
 			
 			this.careerTries = careerTries;
 		}
 	}
 
-	private void setStadiumName(String stadiumName2) {
+	public void setStadiumName(String stadiumName) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
+		this.stadiumName = stadiumName;
 	}
 	
+
+
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName.toLowerCase();
+	}
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
 	
 	//--MAIN--
 	
