@@ -1,4 +1,5 @@
 package rugbyTeam;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UX {
@@ -77,7 +78,7 @@ public class UX {
 		String firstName = null;
 		String surName=null;
 		String playerName=null;
-		
+		input.reset();
 		System.out.println("please enter Player's First name: ");
 		//checks if input is letters not numbers 
 		while(!input.hasNext("[A-Za-z]+")){
@@ -90,7 +91,7 @@ public class UX {
 		input.reset();
 		 
 		System.out.println("Enter player's Surname: ");
-		while(!input.hasNext("[A-Za-z]+")){
+		while(input.hasNext("[A-Za-z]+")){
 			System.out.print("Oops!! Names cant contain numbers");
 			input.next();
 		}
@@ -100,10 +101,10 @@ public class UX {
 			System.out.println("Oops!! first and last name cant be the same");
 			surName = input.next();			
 		}
-		
+
 		playerName = (firstName +" " + surName);
 		playerName = playerName.toLowerCase();
-		
+		input.reset();
 		return playerName;
 	}
 	
@@ -172,6 +173,16 @@ public class UX {
 		Players.addNewPlayer(teamName, stadiumName,teamID, playerID, playerName, careerTries);
 		
 			
+		}
+	
+		public static void printPlayers() {
+			ArrayList<Player>entries = Players.getEntries();
+			for (Player item:entries) {
+				System.out.println("-------------------");
+				System.out.println(item.getPlayer());
+				System.out.println("--------------------");
+				
+			}
 		}
 		
 		

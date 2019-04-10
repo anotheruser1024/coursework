@@ -1,5 +1,7 @@
 package rugbyTeam;
 
+import java.io.IOException;
+
 public class Main {
 	static String capitailizeWord(String str) { 
         StringBuffer cs = new StringBuffer(); 
@@ -28,11 +30,22 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		Players.addNewPlayer("wolfs", "Leeds", "12344", "RUF12345", "jim jones", 1);
-		UX.CreatPlayerNew();
 		
 		//UX.PlayerNew();
-		
-		
+		try {
+			Players.save("players.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		UX.printPlayers();
+		Players.removeByIndex(1);
+		try {
+			Players.save("players.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 //this is an edit

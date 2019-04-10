@@ -1,6 +1,16 @@
 package rugbyTeam;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 
 public class Players {
@@ -13,12 +23,16 @@ public class Players {
         entries = new ArrayList<Player>();
     }
 	
-	public void add( String teamName, String stadiumName,String teamID,String playerID,String playerName,Integer careerTries ) {
+	public void add( String teamName, String stadiumName,String teamID,String playerID,String playerName,int careerTries ) {
 	entries.add(new Player(teamName, stadiumName, teamID, playerID, playerName, careerTries));
 	
 	}
 	
-	public static void addNewPlayer(String teamName, String stadiumName,String teamID,String playerID,String playerName,Integer careerTries ){
+	public static ArrayList<Player> getEntries() {
+		return entries;
+	}
+	
+	public static void addNewPlayer(String teamName, String stadiumName,String teamID,String playerID,String playerName,int careerTries ){
 		//
 		Players pl = new Players();
 		pl.add(teamName, stadiumName, teamID, playerID, playerName, careerTries);
@@ -57,7 +71,7 @@ public class Players {
     }
 	public static boolean existingplayerID(String playerID) {
 		for (Player item:entries) {
-            if (item.getplayerID().equals(playerID) ) {
+            if (item.getPlayerID().equals(playerID) ) {
                 return true;
             }
         }
@@ -65,9 +79,33 @@ public class Players {
 	}
 	
 	
+    public static void save(String path) throws IOException {
 
-
+            // Save each student as a new line in a .tsv style file
+            PrintWriter writer = new PrintWriter(path, "UTF-8");
+            for (Player item:entries) {
+                writer.println(item.getTeamName() + "\t" + item.getStadiumName() + "\t" + item.getTeamID() + "\t" + item.getPlayerID() + "\t" + item.getPlayerName() + "\t" +  item.getCareerTries());
+            
+            writer.close();
+        }
+    }	
+    public static void loadFile(String filePath)throws Exception {
+	    BufferedReader reader = new BufferedReader(new FileReader(filePath)); 
+	    ArrayList<String> listOfLines = new ArrayList<>();
+	    String line = reader.readLine();
+	    while (line != null) {
+	    	listOfLines.add(line);
+	    	line = reader.readLine();
+	    } 
+	    reader.close();
+	    System.out.println("Content of ArrayLiList:"); 
+	    System.out.println(listOfLines);
 	
-	
-
+	    
+    }
 }
+
+    
+	
+	
+

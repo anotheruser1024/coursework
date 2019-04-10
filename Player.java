@@ -30,10 +30,17 @@ public class Player {
 	public Player() {
 		;
 	}
-
+	
 	
 
-
+	public String getPlayerID() {
+		return playerID;
+	}
+	
+	public String getStadiumName() {
+		
+		return stadiumName;
+	}
 
 	public String getPlayerName() {
 		
@@ -43,11 +50,14 @@ public class Player {
 	public int getCareerTries() {
 		return careerTries;
 	}
-	
-	public String getplayerID() {
-		// TODO Auto-generated method stub
-		return playerID;
+	public String getTeamName() {
+		return teamName;
 	}
+	
+	public String getTeamID() {
+		return teamID;
+	}
+	
 	
 	public String getPlayer() {
 		String player = "\t\t ----PLayer Details---"+
