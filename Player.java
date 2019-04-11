@@ -12,9 +12,9 @@ public class Player {
 	private String teamID;
 	private String playerID;
 	private String playerName;
-	private int careerTries;
+	private Integer careerTries;
 	
-	public Player(String teamName, String stadiumName,String teamID,String playerID,String playerName,int careerTries) {
+	public Player(String teamName, String stadiumName,String teamID,String playerID,String playerName,Integer careerTries) {
 		
 		this.setTeamName(teamName);		
 		this.setStadiumName(stadiumName);
@@ -47,7 +47,7 @@ public class Player {
 		return playerName;
 	}
 	
-	public int getCareerTries() {
+	public Integer getCareerTries() {
 		return careerTries;
 	}
 	public String getTeamName() {
@@ -80,7 +80,7 @@ public class Player {
 	}
 	
 	public void setPlayerID(String playerID)  throws IllegalArgumentException{
-		if(Pattern.matches("RUF[0-9]{5}", playerID) && !Players.existingplayerID(playerID)) {
+		if(Pattern.matches("RUF[0-9]{5}", playerID) && !Players.existingplayerID(playerID) ) {
 			//check if player format is RUF then 5 digits
 			
 			this.playerID = playerID;
@@ -91,16 +91,10 @@ public class Player {
 		}
 	}
 	
-	public void setCareerTries(int careerTries) {
+	public void setCareerTries(Integer careerTries) {
 		
-		if(getCareerTries() >= 1){
-			this.careerTries += careerTries;
-			System.out.println(getPlayerName() +"'s " + "career tries to date: " +getCareerTries());
-			
-		}else{
-			
 			this.careerTries = careerTries;
-		}
+		
 	}
 
 	public void setStadiumName(String stadiumName) {

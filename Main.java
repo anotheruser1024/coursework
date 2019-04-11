@@ -1,6 +1,7 @@
 package rugbyTeam;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
 	static String capitailizeWord(String str) { 
@@ -22,31 +23,42 @@ public class Main {
         }   //convert string buffer to string 
         String stringout =cs.toString().trim();
         return stringout; 
-    } //taken from Geeks for Geeks  helper function 
+    }  
 	
 	
 
-	public static void main(String args[]) {
-		// TODO Auto-generated method stub
+	public static void main(String args[])  {
+		// 
 		
-		Players.addNewPlayer("wolfs", "Leeds", "12344", "RUF12345", "jim jones", 1);
 		
-		//UX.PlayerNew();
+		try {
+			Players.loadFile("players.txt");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		UX.selectOptionHome();
+
 		try {
 			Players.save("players.txt");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		UX.printPlayers();
-		Players.removeByIndex(1);
+		int count = 4;
+		while(count != 0) {
+		System.out.println("closing in: " + count);
 		try {
-			Players.save("players.txt");
-		} catch (IOException e) {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		count -=1;
+		}
+	    System.out.println("Bye");
+	    System.exit(0);
 	}
 //this is an edit
 	
