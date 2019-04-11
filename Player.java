@@ -13,20 +13,42 @@ public class Player {
 	private String playerID;
 	private String playerName;
 	private Integer careerTries;
+	private String stadiumStreet;
+	private String stadiumTown;
+	private String stadiumPostCode;
+		
+		
+		
+		//setters		
 	
-	public Player(String teamName, String stadiumName,String teamID,String playerID,String playerName,Integer careerTries) {
+		
+		
+		
+
+	
+	public Player(String teamName, String stadiumName,String teamID,String playerID,String playerName,Integer careerTries,String stadiumStreet,String stadiumTown,String stadiumPostCode) {
 		
 		this.setTeamName(teamName);		
 		this.setStadiumName(stadiumName);
 		this.setTeamID(teamID);
 		this.setPlayerID(playerID);
 		this.setPlayerName(playerName);
-		this.setCareerTries(careerTries);
-		
+		this.setCareerTries(careerTries);		
+		this.setStadiumStreet(stadiumStreet);
+		this.setStadiumTown(stadiumTown);
+		this.setStadiumPostCode(stadiumPostCode);
 		// TODO Auto-generated constructor stub
 	}
 
 	
+
+
+
+
+
+
+
+
 	public Player() {
 		;
 	}
@@ -57,7 +79,15 @@ public class Player {
 	public String getTeamID() {
 		return teamID;
 	}
-	
+	public String getStadiumStreet(){
+		return stadiumStreet;
+	}
+	public String getStadiumTown() {
+		return stadiumTown;
+	}
+	public String getStadiumPostCode() {
+		return stadiumPostCode;
+	}
 	
 	public String getPlayer() {
 		String player = "\t\t ----PLayer Details---"+
@@ -74,7 +104,7 @@ public class Player {
 	
 	//--Setters--
 	
-	private void setTeamID(String teamID) {
+	public void setTeamID(String teamID) {
 		// TODO Auto-generated method stub
 		this.teamID = teamID;
 	}
@@ -111,6 +141,23 @@ public class Player {
 		this.teamName = teamName;
 	}
 	
+	public void setStadiumPostCode(String stadiumPostCode)  throws IllegalArgumentException {
+		if(Pattern.matches("^[A-Z]{1,2}[0-9]{1,2}[A-Z]? [0-9][A-Z]{2}$",stadiumPostCode)) {
+			this.stadiumPostCode = stadiumPostCode;
+		}else {
+			
+			throw new IllegalArgumentException("Post code doesn't match from AA 11 9AA");
+		}
+}
+	
+	public void setStadiumTown(String stadiumTown) {
+		this.stadiumTown = stadiumTown;
+	}
+
+	public void setStadiumStreet(String stadiumStreet) {
+		// TODO Auto-generated method stub
+		
+	}	
 	//--MAIN--
 	
 	

@@ -1,4 +1,5 @@
 package rugbyTeam;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -100,6 +101,9 @@ public class UX {
 		return str;
 	}
 	
+
+	
+	
 // player menu ux methods 
 	
 	public static String inputName() {
@@ -146,7 +150,9 @@ public class UX {
 		String playerName=null;
 		String teamName=null;
 		Integer careerTries=0;
-		
+		String stadiumStreet;
+		String stadiumTown;
+		String stadiumPostCode;
 		String teamID=null;
 		Player player = new Player();
         while (true) {
@@ -200,17 +206,73 @@ public class UX {
                 System.out.println(e.getMessage());
             }
         }
+        while (true) {
+            try {
+            	printField( "player", "stadium Street");
+                stadiumStreet = checkIsStr();
+                player.setStadiumStreet(stadiumStreet);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        while (true) {
+            try {
+            	printField( "player", "stadium town");
+                stadiumTown = checkIsStr();
+                player.setStadiumTown(stadiumTown);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        while (true) {
+            try {
+            	printField( "player", "stadium Post Code");
+                stadiumPostCode = input.nextLine();
+                player.setStadiumPostCode(stadiumPostCode);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 		
-		Players.addNewPlayer(teamName, stadiumName,teamID, playerID, playerName, careerTries);
+		
+		
+	
 		
 			
 		}
 		
-		public static void findPlayer() {
-			;//--TODO---
+		public static void findPlayer(String toFind) {
+			
+			ArrayList<Player>entries = Players.getEntries();
+			for (Player item:entries) {
+				if(item.getPlayerName().contains(toFind)) {
+				System.out.println("-------------------");
+				System.out.println(item.getPlayer());
+				System.out.println("--------------------");
+				}
+					System.out.println("Couldn't find player");
+				
+			}
+			System.out.println("Couldn't find player");
+			selectOptionHome();
+			
 		}
-		public static void findLucky(){
-			;
+		public static void findLucky(String toFind){
+			
+			ArrayList<Player>entries = Players.getEntries();
+			for (Player item:entries) {
+				if(item.getPlayer().contains(toFind)) {
+				System.out.println("-------------------");
+				System.out.println(item.getPlayer());
+				System.out.println("--------------------");
+				}
+					
+			}
+			System.out.println("nothing similar to search found");
+			selectOptionHome();
 		}
 		public static void findStadium(){
 			
@@ -218,22 +280,28 @@ public class UX {
 		
 		public static void findPlayerOption() {
 			int option;
-			printFindPlayer();
-			printsearch();
+			String toFind;
+			
+			
+			 printFindPlayer();
+			System.out.println("\n\nEnter what you'd like to search for:");
+			
+			toFind = input.next();
+			if(toFind == "Home" || toFind == "home") {
+				selectOptionHome();
+			}else {
+				printsearch();
 			System.out.println("Enter a number the number of next menu: ");
 			option = checkIsInt();
 			if( option < 5) {
 				switch (option) {
 					case 1:
-						findPlayer();
+						findPlayer(toFind);
 						break;
 					case 2:
-						findLucky();
+						findLucky(toFind);
 						break;
 					case 3:
-						findPlayerOption();
-						break;
-					case 4:
 						printPlayers();
 						break;
 						
@@ -242,6 +310,7 @@ public class UX {
 			}else{
 				System.out.print("Enter a Number corosponding to your choise: ");
 				option= checkIsInt();
+			}
 			}
 			
 		}
@@ -312,7 +381,10 @@ public class UX {
 					case 4:
 						printPlayers();
 						break;
+					case 5:
+						System.out.println("Exit and save changes");
 						
+						break;
 					}
 			
 			}else{

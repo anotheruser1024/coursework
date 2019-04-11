@@ -29,8 +29,8 @@ public class Players {
         entries = new ArrayList<Player>();
     }
 	
-	public void add( String teamName, String stadiumName,String teamID,String playerID,String playerName,Integer careerTries ) {
-	entries.add(new Player(teamName, stadiumName, teamID, playerID, playerName, careerTries));
+	public void add( String teamName, String stadiumName,String teamID,String playerID,String playerName,Integer careerTries,String stadiumStreet,String stadiumTown,String stadiumPostCode ) {
+	entries.add(new Player(teamName, stadiumName, teamID, playerID, playerName, careerTries,stadiumStreet, stadiumTown, stadiumPostCode));
 	
 	}
 	
@@ -41,10 +41,10 @@ public class Players {
 		return entries.get(index).getPlayer();
 	}
 	
-	public static void addNewPlayer(String teamName, String stadiumName,String teamID,String playerID,String playerName,Integer careerTries ){
+	public static void addNewPlayer(String teamName, String stadiumName,String teamID,String playerID,String playerName,Integer careerTries,String stadiumStreet,String stadiumTown,String stadiumPostCode ){
 		//
 		
-		pl.add(teamName, stadiumName, teamID, playerID, playerName, careerTries);
+		pl.add(teamName, stadiumName, teamID, playerID, playerName, careerTries, stadiumStreet, stadiumTown, stadiumPostCode);
 		
 		System.out.println("New player added\n");
 	}
@@ -110,12 +110,12 @@ public class Players {
 	    List<String> listOfLines = new ArrayList<String>(Arrays.asList());
 	    try {
 		    if(!reader.ready()) {
-		    	throw new IOException();//checks whether file is ready to read
+		    	throw new IOException("NO players loaded");//checks whether file is ready to read
 		    }
 		    while (line != null) {
 		    	List<String> values = new ArrayList<String>(Arrays.asList(line.split("\t")));
 		    	
-                Players.addNewPlayer(values.get(0), values.get(1), values.get(2), values.get(3), values.get(4),Integer.parseInt(values.get(5)) );
+                Players.addNewPlayer(values.get(0), values.get(1), values.get(2), values.get(3), values.get(4),Integer.parseInt(values.get(5)),values.get(6),values.get(7),values.get(8));
                 
 		    	
 		    	line = reader.readLine();

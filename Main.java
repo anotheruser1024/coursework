@@ -1,6 +1,7 @@
 package rugbyTeam;
 
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -32,7 +33,10 @@ public class Main {
 		
 		
 		try {
-			Players.loadFile("players.txt");
+			Scanner input = new Scanner(System.in);
+			System.out.print("Enter the file name you want to save changes to with suffix .txt: ");
+			String file = input.next();
+			Players.loadFile(file);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,7 +45,10 @@ public class Main {
 		UX.selectOptionHome();
 
 		try {
-			Players.save("players.txt");
+			Scanner input = new Scanner(System.in);
+			System.out.print("Enter the file name you want to save changes to with suffix .txt: ");
+			String file = input.next();
+			Players.save(file);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
