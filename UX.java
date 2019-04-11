@@ -5,6 +5,21 @@ import java.util.Scanner;
 public class UX {
 	static Scanner input = new Scanner(System.in);
 	
+/*	
+ * code index 
+ * line 16 menu print helper methods  
+ * line 56 menu input helper methods 
+ * line 77 menu methods 
+ * 
+ */
+	
+// menu print helper methods 
+	public static void printsearch() {
+		printFindPlayer();
+		System.out.println("\n\t 1: Seach for player by name \n\t 2: lucky search \n\t 3:search by stadium ");
+		
+	}
+	
 	public static void welcome() {
 		System.out.println("---WELCOME---");
 		System.out.println("Welcom to player manager app");		
@@ -16,22 +31,21 @@ public class UX {
 	public static void printfirstMenu() {
 		
 		System.out.println("What would you like to do today?");		
-		System.out.println("1:Add New Player/n2: Edit Player /n3: View Existing player");
-		
-		int select;
-		select = input.nextInt();
-		System.out.println(select);
-		
-		
+		System.out.println("1:Add New Player\n2: Delete Player \n3: Search Existing players \n4:View all players\n5 Exit program");
+				
 	}
 	
 	public static void printAddMenu() {
 		clearScreen();
 		System.out.println("---ADD NEW PLAYER---");		
 	}
-	public static void printEditMenu() {
+	public static void printFindPlayer() {
 		clearScreen();
-		System.out.println("---EDIT EXISTING PLAYER--");
+		System.out.println("---SEARCH FOR PLAYERS--");
+		
+	}
+	public static void printDelete() {
+		System.out.println("---DELETE PLAYER---");
 		
 	}
 	
@@ -47,6 +61,8 @@ public class UX {
 		System.out.println("Plaese Enter "+ className +"'s "+ field+": ");		
 		
 	}
+//input helper methods	
+	
 	public static  int checkIsInt() {
 		
 		int number;
@@ -61,17 +77,30 @@ public class UX {
 		return number;
 		
 	}
-	
 	public static String inputPlayerID() {
 		String playerID;
 		while(!input.hasNext("RUF[0-9][0-9][0-9][0-9][0-9]")){
 			System.out.println("Please enter player ID with Prefix RUF followed by 5 didgits");
-			
 			input.next();
 		}
-		playerID = input.nextLine();
+		playerID = input.next();
 		return playerID;
 	}
+	
+	public static String checkIsStr(){
+		String str;
+		//checks if input is letters not numbers 
+		while(!input.hasNext("[A-Za-z]+")){
+			System.out.print(" Oops!! names can't have numbers");
+			input.next();		
+		}
+		str = input.nextLine();
+		//.append(scanner.nextLine());
+		
+		return str;
+	}
+	
+// player menu ux methods 
 	
 	public static String inputName() {
 		//local variables for method 
@@ -86,22 +115,24 @@ public class UX {
 			input.next();
 			
 		}
-		firstName = input.nextLine();
+		firstName = input.next();
 		//.append(scanner.nextLine());
 		input.reset();
-		 
+		
 		System.out.println("Enter player's Surname: ");
-		while(input.hasNext("[A-Za-z]+")){
+		while(!input.hasNext("[A-Za-z]+")){
 			System.out.print("Oops!! Names cant contain numbers");
 			input.next();
 		}
 		
-		surName = input.nextLine();
+		surName = input.next();
+		
 		while(firstName.equals(surName) ) {
 			System.out.println("Oops!! first and last name cant be the same");
-			surName = input.next();			
+			surName = input.next();	
+			
 		}
-
+		
 		playerName = (firstName +" " + surName);
 		playerName = playerName.toLowerCase();
 		input.reset();
@@ -109,12 +140,12 @@ public class UX {
 	}
 	
 	
-	public static void CreatPlayerNew() {
+	public static void creatPlayerNew() {
 		String playerID =null;
 		String stadiumName=null;
 		String playerName=null;
 		String teamName=null;
-		int careerTries=0;
+		Integer careerTries=0;
 		
 		String teamID=null;
 		Player player = new Player();
@@ -130,7 +161,7 @@ public class UX {
         }
         while (true) {
             try {
-            	printField( "player", "playerID");
+            	printField( "player", "player ID");
                 playerID = input.nextLine();
                 player.setPlayerID(playerID);
                 break;
@@ -174,6 +205,80 @@ public class UX {
 		
 			
 		}
+		
+		public static void findPlayer() {
+			;//--TODO---
+		}
+		public static void findLucky(){
+			;
+		}
+		public static void findStadium(){
+			
+		}
+		
+		public static void findPlayerOption() {
+			int option;
+			printFindPlayer();
+			printsearch();
+			System.out.println("Enter a number the number of next menu: ");
+			option = checkIsInt();
+			if( option < 5) {
+				switch (option) {
+					case 1:
+						findPlayer();
+						break;
+					case 2:
+						findLucky();
+						break;
+					case 3:
+						findPlayerOption();
+						break;
+					case 4:
+						printPlayers();
+						break;
+						
+					}
+			
+			}else{
+				System.out.print("Enter a Number corosponding to your choise: ");
+				option= checkIsInt();
+			}
+			
+		}
+		
+		
+		public static void deletePlayer() {
+			String playerID;
+			int indexPlayer;
+			String choise;
+			
+			printDelete();
+			printField("player", "player id");
+			playerID =  inputPlayerID();
+			indexPlayer = Players.findPlayersIndex(playerID);
+			if(indexPlayer != -1 ) {
+
+				System.out.println("are you sure you sure you want to delete PLayer");
+				System.out.print(Players.getplayerByindex(indexPlayer));
+				printConfrim();
+				choise = checkIsStr();
+				if(choise == "yes" || choise == "y" || choise == "Yes" || choise == "Y") {
+					Players.removeByIndex(indexPlayer);
+					System.out.println("Player has been removed");
+					System.out.println("Retruning to home screen");
+					selectOptionHome();
+				}
+				System.out.println("Retruning to home screen");
+				selectOptionHome();
+				
+			}else {
+				System.out.println("Player Not found try print all players for correct player ID");
+				selectOptionHome();
+			}
+			
+			
+		}
+		
 	
 		public static void printPlayers() {
 			ArrayList<Player>entries = Players.getEntries();
@@ -183,6 +288,38 @@ public class UX {
 				System.out.println("--------------------");
 				
 			}
+			selectOptionHome();
+			
+		}
+		
+		public static void selectOptionHome() {
+			int option;
+			printfirstMenu();
+			
+			System.out.println("Enter a number the number of next menu: ");
+			option = checkIsInt();
+			if( option < 6) {
+				switch (option) {
+					case 1:
+						creatPlayerNew();
+						break;
+					case 2:
+						deletePlayer();
+						break;
+					case 3:
+						findPlayerOption();
+						break;
+					case 4:
+						printPlayers();
+						break;
+						
+					}
+			
+			}else{
+				System.out.print("Enter a Number corosponding to your choise: ");
+				option= checkIsInt();
+			}
+
 		}
 		
 		
